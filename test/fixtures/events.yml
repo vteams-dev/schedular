@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  event_type: MyString
+  start: 
+  end: 
+  repeat: MyString
+  repeat_type: MyString
+  repeat_value_i: 1
+  repeat_value_s: MyString
+  location: MyString
+
+two:
+  title: MyString
+  event_type: MyString
+  start: 
+  end: 
+  repeat: MyString
+  repeat_type: MyString
+  repeat_value_i: 1
+  repeat_value_s: MyString
+  location: MyString
