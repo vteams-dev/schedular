@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
     t.integer "repeat_value_i"
     t.string "repeat_value_s"
     t.string "location"
+    t.integer "calender_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["calender_id"], name: "index_events_on_calender_id"
   end
 
   create_table "interviews", force: :cascade do |t|
@@ -47,8 +49,10 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
     t.string "interviewee"
     t.string "interviewers"
     t.string "methods"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_interviews_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,4 +70,6 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "calenders"
+  add_foreign_key "interviews", "events"
 end

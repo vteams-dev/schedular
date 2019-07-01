@@ -5,8 +5,9 @@ class CreateInterviews < ActiveRecord::Migration[6.0]
       t.string :interviewee
       t.string :interviewers
       t.string :methods
-
+      t.references  :event, foreign_key: true
       t.timestamps
     end
+
   end
 end
