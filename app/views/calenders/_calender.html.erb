@@ -1,0 +1,17 @@
+<li id="calender-<%= calender.id %>">
+  <span class="content">
+    <%= calender.title %>
+    <!--
+    <%= calender.owner_type %>
+    <%= calender.owner_id %>
+    -->
+  </span>
+  <span>
+      <%= link_to 'delete', calender, method: :delete,
+                  data: { confirm: 'You sure?'} %>
+  </span>
+  <span>
+      <%= link_to 'edit', edit_calender_path(calender.id) %>
+  </span>
+
+</li>
