@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get 'calenders/delete'
   # get 'calenders/show'
   resources :calenders
-  root 'static_pages#home'
+  root 'calenders#index'
   # get 'static_pages/help'
   # root 'users#home'
   devise_for :users

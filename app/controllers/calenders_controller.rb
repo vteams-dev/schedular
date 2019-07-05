@@ -3,6 +3,7 @@ class CalendersController < ApplicationController
 
   def index
     @calenders = current_user.calenders
+    @calender = Calender.new(owner_id: current_user.id)
   end
 
   def edit
