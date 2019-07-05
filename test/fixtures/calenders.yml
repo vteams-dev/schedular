@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
+donald:
+  title: Meeting
   owner_id: 1
-  owner_type: MyString
+  owner_type: User
 
-two:
-  title: MyString
+michael:
+  title: War
   owner_id: 1
-  owner_type: MyString
+  owner_type: User

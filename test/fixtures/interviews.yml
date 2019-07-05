@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  description: MyString
-  interviewee: MyString
-  interviewers: MyString
-  methods: MyString
+Meeting:
+  description: Urgent meeting for recruitment
+  interviewee: Adil
+  interviewers: Ali, Nauman
+  methods: physical
 
-two:
-  description: MyString
-  interviewee: MyString
-  interviewers: MyString
-  methods: MyString
+War:
+  description: Interview for Ruby on Rails Developer
+  interviewee: Umait
+  interviewers: Usman, dilawar
+  methods: online

@@ -1,5 +1,5 @@
 class Interview < ApplicationRecord
-  validates :description,:interviewee,:interviewers,:methods, presence: true
+  validates_presence_of :description, :interviewee, :interviewers, :methods
 
   belongs_to :event
 end

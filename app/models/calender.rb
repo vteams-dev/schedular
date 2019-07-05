@@ -1,5 +1,5 @@
 class Calender < ApplicationRecord
-  validates :title,:owner_id,:owner_type, presence: true
+  validates_presence_of :title
 
   belongs_to :owner, polymorphic: true
   has_many :events, dependent: :destroy

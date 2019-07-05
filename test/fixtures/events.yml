@@ -1,23 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  event_type: MyString
-  start: 
-  end: 
-  repeat: MyString
-  repeat_type: MyString
-  repeat_value_i: 1
-  repeat_value_s: MyString
-  location: MyString
+Meeting:
+  title: Meeting
+  event_type: Meeting
+  start: <%= Time.now %>
+  end: <%= Time.at_end_of_day %>
+  repeat: Yes
+  repeat_type: Daily
+  repeat_value_i: 5
+  repeat_value_s: 0
+  location: Lahore
 
-two:
-  title: MyString
-  event_type: MyString
-  start: 
-  end: 
-  repeat: MyString
-  repeat_type: MyString
-  repeat_value_i: 1
-  repeat_value_s: MyString
-  location: MyString
+War:
+  title: War
+  event_type: Interview
+  start: <%= Time.now %>
+  end: <%= Time.at_end_of_day %>
+  repeat: Yes
+  repeat_type: Monthly
+  repeat_value_i: 7
+  repeat_value_s: 0
+  location: Islamabad
