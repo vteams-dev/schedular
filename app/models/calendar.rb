@@ -1,4 +1,4 @@
-class Calender < ApplicationRecord
+class Calendar < ApplicationRecord
   validates_presence_of :title
 
   belongs_to :owner, polymorphic: true

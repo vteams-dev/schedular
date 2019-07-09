@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
   validates_presence_of :email, :name, :phone
 
-  has_many :calenders, as: :owner
+  has_many :calendars, as: :owner
 end

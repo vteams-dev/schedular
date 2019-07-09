@@ -12,12 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2019_06_28_130211) do
 
-  create_table "calenders", force: :cascade do |t|
+  create_table "calendars", force: :cascade do |t|
     t.string "title"
     t.integer "owner_id"
     t.string "owner_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_type", "owner_id"], name: "index_Calendars_on_owner_type_and_owner_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -38,10 +39,10 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
     t.integer "repeat_value_i"
     t.string "repeat_value_s"
     t.string "location"
-    t.integer "calender_id"
+    t.integer "calendar_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["calender_id"], name: "index_events_on_calender_id"
+    t.index ["calendar_id"], name: "index_events_on_calendar_id"
   end
 
   create_table "interviews", force: :cascade do |t|
@@ -70,6 +71,6 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "events", "calenders"
+  add_foreign_key "events", "calendars"
   add_foreign_key "interviews", "events"
 end

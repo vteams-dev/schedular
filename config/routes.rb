@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  # get 'calenders/new'
-  # get 'calenders/update'
-  # get 'calenders/delete'
-  # get 'calenders/show'
-  resources :calenders
-  root 'calenders#index'
+  # get 'calendars/new'
+  # get 'calendars/update'
+  # get 'calendars/delete'
+  # get 'calendars/show'
+  resources :calendars
+  root 'calendars#index'
   # get 'static_pages/help'
   # root 'users#home'
   devise_for :users

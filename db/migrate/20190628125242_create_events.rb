@@ -10,7 +10,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.integer :repeat_value_i
       t.string :repeat_value_s
       t.string :location
-      t.references  :calender, foreign_key: true
+      t.references  :calendar, foreign_key: true
 
       t.timestamps
     end
