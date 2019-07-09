@@ -10,7 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_27_094206) do
+ActiveRecord::Schema.define(version: 2019_06_28_130211) do
+
+  create_table "calenders", force: :cascade do |t|
+    t.string "title"
+    t.integer "owner_id"
+    t.string "owner_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.integer "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "event_type"
+    t.datetime "start"
+    t.datetime "end"
+    t.string "repeat"
+    t.string "repeat_type"
+    t.integer "repeat_value_i"
+    t.string "repeat_value_s"
+    t.string "location"
+    t.integer "calender_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calender_id"], name: "index_events_on_calender_id"
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.string "description"
+    t.string "interviewee"
+    t.string "interviewers"
+    t.string "methods"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_interviews_on_event_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +63,13 @@ ActiveRecord::Schema.define(version: 2019_06_27_094206) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "calenders"
+  add_foreign_key "interviews", "events"
 end
