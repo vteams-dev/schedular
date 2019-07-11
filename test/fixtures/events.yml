@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Meeting:
+  title: Meeting
+  event_type: Meeting
+  start: <%= Time.now %>
+  end: <%= Time.at_end_of_day %>
+  repeat: Yes
+  repeat_type: Daily
+  repeat_value_i: 5
+  repeat_value_s: 0
+  location: Lahore
+
+War:
+  title: War
+  event_type: Interview
+  start: <%= Time.now %>
+  end: <%= Time.at_end_of_day %>
+  repeat: Yes
+  repeat_type: Monthly
+  repeat_value_i: 7
+  repeat_value_s: 0
+  location: Islamabad

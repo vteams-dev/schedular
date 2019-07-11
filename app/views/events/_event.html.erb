@@ -1,0 +1,11 @@
+<li id="event-<%= event.id %>">
+  <span class="content">
+    <%= event.title %>
+  </span>
+  <span>
+      <%= link_to 'delete', event, method: :delete,
+                  data: { confirm: 'You sure?'} %>
+  </span>
+
+
+</li>

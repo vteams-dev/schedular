@@ -1,0 +1,6 @@
+<%= form_for(@calendar) do |f| %>
+    <div class="field">
+      <%= f.text_area :title, placeholder: 'Compose new Calendar' %>
+    </div>
+    <%= f.submit 'Post', class: 'btn btn-primary' %>
+<% end %>

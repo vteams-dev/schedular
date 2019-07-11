@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Meeting:
+  description: Urgent meeting for recruitment
+  interviewee: Adil
+  interviewers: Ali, Nauman
+  methods: physical
+
+War:
+  description: Interview for Ruby on Rails Developer
+  interviewee: Umait
+  interviewers: Usman, dilawar
+  methods: online

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+donal:
+  email: Nextbridge@gmail.com
+  name:  Nextbridge
+  phone: 03211234567
+
+michael:
+  email: Confiz@gmail.com
+  name: Confiz
+  phone: 03339333633
