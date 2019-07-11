@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
-  validates_presence_of :title, :event_type, :start, :end, :repeat, :repeat_type, :repeat_value_i, :repeat_value_s, :location
+  validates_presence_of :title, :start_time, :end_time
 
   belongs_to :calendar
-  has_one :interview
-
+  belongs_to :user
+  belongs_to :eventable, polymorphic: true, optional: true
 end

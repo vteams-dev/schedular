@@ -6,6 +6,10 @@ class CalendarsController < ApplicationController
     @calendar = Calendar.new(owner_id: current_user.id)
   end
 
+  def show
+    @calendar = Calendar.find(params[:id])
+  end
+
   def edit
     @calendar = Calendar.find(params[:id])
   end

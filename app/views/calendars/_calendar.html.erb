@@ -1,10 +1,8 @@
 <li id="calendar-<%= calendar.id %>">
   <span class="content">
     <%= calendar.title %>
-    <!--
     <%= calendar.owner_type %>
     <%= calendar.owner_id %>
-    -->
   </span>
   <span>
       <%= link_to 'delete', calendar, method: :delete,
@@ -12,6 +10,9 @@
   </span>
   <span>
       <%= link_to 'edit', edit_calendar_path(calendar.id) %>
+  </span>
+  <span>
+    <%= link_to 'show calendar', calendar_path(calendar.id) %>
   </span>
 
 </li>

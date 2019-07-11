@@ -14,11 +14,12 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
 
   create_table "calendars", force: :cascade do |t|
     t.string "title"
-    t.integer "owner_id"
+    t.string "color"
     t.string "owner_type"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["owner_type", "owner_id"], name: "index_Calendars_on_owner_type_and_owner_id"
+    t.index ["owner_type", "owner_id"], name: "index_calendars_on_owner_type_and_owner_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -31,18 +32,21 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
-    t.string "event_type"
-    t.datetime "start"
-    t.datetime "end"
-    t.string "repeat"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.boolean "repeat"
     t.string "repeat_type"
-    t.integer "repeat_value_i"
-    t.string "repeat_value_s"
+    t.string "repeat_value"
     t.string "location"
     t.integer "calendar_id"
+    t.integer "user_id"
+    t.string "eventable_type"
+    t.integer "eventable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["calendar_id"], name: "index_events_on_calendar_id"
+    t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable_type_and_eventable_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "interviews", force: :cascade do |t|
@@ -72,5 +76,6 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
   end
 
   add_foreign_key "events", "calendars"
+  add_foreign_key "events", "users"
   add_foreign_key "interviews", "events"
 end

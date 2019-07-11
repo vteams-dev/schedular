@@ -2,18 +2,17 @@ class CreateEvents < ActiveRecord::Migration[6.0]
   def change
     create_table :events do |t|
       t.string :title
-      t.string :event_type
-      t.datetime :start
-      t.datetime :end
-      t.string :repeat
+      t.datetime :start_time
+      t.datetime :end_time
+      t.boolean :repeat
       t.string :repeat_type
-      t.integer :repeat_value_i
-      t.string :repeat_value_s
+      t.string :repeat_value
       t.string :location
       t.references  :calendar, foreign_key: true
+      t.references  :user, foreign_key: true
+      t.references  :eventable, polymorphic: true, index: true
 
       t.timestamps
     end
-
   end
 end
