@@ -1,8 +1,12 @@
 class CalendarsController < ApplicationController
   before_action :authenticate_user!
 
+
   def index
     @calendars = current_user.calendars
+  end
+
+  def new
     @calendar = Calendar.new(owner_id: current_user.id)
   end
 
