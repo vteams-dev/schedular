@@ -1,0 +1,9 @@
+<%= form_for(@event) do |f| %>
+    <div class="field">
+      <%= f.text_area :title, placeholder: 'Event Title' %>
+      <%= f.text_area :event_type, placeholder: 'Event Type' %>
+      <%= f.text_area :location, placeholder: 'Location' %>
+
+    </div>
+    <%= f.submit 'Post', class: 'btn btn-primary' %>
+<% end %>
