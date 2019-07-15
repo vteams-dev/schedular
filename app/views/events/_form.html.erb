@@ -1,4 +1,4 @@
-<%= form_for([@calendar, @event]) do |f| %>
+<%=form_with model: [@calendar, @event] do |f| %>
     <div class="field">
       <%= f.text_area :title, placeholder: 'Event Title' %>
       <%= f.datetime_field :start_time, placeholder: 'Start Time' %>

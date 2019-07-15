@@ -1,19 +1,15 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!
-
+  before_action :authenticate_user!, :load_calendar
 
   def index
-    @calendar = current_user.calendars.find params[:calendar_id]
     @events = @calendar.events
   end
 
   def new
-    @calendar = current_user.calendars.find params[:calendar_id]
     @event = Event.new(calendar: @calendar)
   end
 
   def create
-    @calendar = current_user.calendars.find params[:calendar_id]
     @event = @calendar.events.build event_params
     @event.user = current_user
     if @event.save
@@ -35,7 +31,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    @calendar = current_user.calendars.find params[:calendar_id]
     @event = @calendar.events.find(params[:id])
     if @event.update_attributes(event_params)
       flash[:success] = 'Event updated'
@@ -47,7 +42,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @calendar = current_user.calendars.find params[:calendar_id]
     @event = @calendar.events.find(params[:id])
     @event.destroy
     flash[:success] = 'Event deleted'
@@ -55,6 +49,10 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def load_calendar
+    @calendar = current_user.calendars.find params[:calendar_id]
+  end
 
   def event_params
     params.require(:event).permit(:title, :start_time, :end_time)
