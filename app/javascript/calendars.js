@@ -9,9 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new Calendar(calendarEl, {
         plugins: [ timeGridPlugin,dayGridPlugin, interactionPlugin ],
 
+        selectable: true,
+        timeZone: 'UTC',
+        editable: true,
+        selectHelper: true,
+        eventLimit: true,
+
         header: {
             center: 'dayGridMonth,timeGridSevenDay,dayGridFourDay,dayGridOneDay' // buttons for switching between views
         },
+
+        events: '/calendars/4/events.json',
+
 
         views: {
             dayGridOneDay: {
@@ -37,19 +46,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
         },
 
+        eventClick: function(info) {
+            alert('Event: ' + info.event.title);
+            //alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+            //alert('View: ' + info.view.type);
 
-        events: [
-            {
-                id: '1',
-                title: 'my event',
-                start: '2019-07-01'
-            }
-        ]
+            // change the border color just for fun
+            info.el.style.borderColor = 'red';
+        }
+
+
+        // events: [
+        //     {
+        //         id: '1',
+        //         title: 'my event',
+        //         start: '2019-07-01'
+        //     }
+        // ]
 });
 
-    var event = calendar.getEventById('1') // an event object!
-    var start = event.start // a property (a Date object)
-    console.log(start.toISOString()) // "2018-09-01T00:00:00.000Z"
+    //var event = calendar.getEventById('1') // an event object!
+    //var start = event.start // a property (a Date object)
+    //console.log(start.toISOString()) // "2018-09-01T00:00:00.000Z"
 
     calendar.render();
 });
