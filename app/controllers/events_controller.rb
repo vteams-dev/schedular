@@ -10,14 +10,83 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = @calendar.events.build event_params
-    @event.user = current_user
-    if @event.save
-      flash[:success] = 'Event created!'
-      redirect_to calendar_events_path
-    else
-      flash[:alert] = @event.errors.full_messages
-      redirect_to new_calendar_event_path(@calendar)
+    if params[:event][:repeat] == '1'
+      if params[:event][:repeat_type] == 'monthly'
+        @event = @calendar.events.build event_params
+        @event.user = current_user
+        for i in 1...params[:event][:repeat_value].to_i
+          @new_event = @event.dup
+          @new_event.start_time = @event.start_time + i.months
+          @new_event.end_time = @event.end_time + i.months
+          @new_event.save
+        end
+        if @event.save
+          flash[:success] = 'Event created!'
+          redirect_to calendar_events_path(@calendar)
+        else
+          flash[:alert] = @event.errors.full_messages
+          redirect_to new_calendar_event_path(@calendar)
+        end
+      elsif params[:event][:repeat_type] == 'weekly'
+        @event = @calendar.events.build event_params
+        @event.user = current_user
+        for i in 1...params[:event][:repeat_value].to_i
+          @new_event = @event.dup
+          @new_event.start_time = @event.start_time + i*7.days
+          @new_event.end_time = @event.end_time + i*7.days
+          @new_event.save
+        end
+        if @event.save
+          flash[:success] = 'Event created!'
+          redirect_to calendar_events_path(@calendar)
+        else
+          flash[:alert] = @event.errors.full_messages
+          redirect_to new_calendar_event_path(@calendar)
+        end
+      elsif params[:event][:repeat_type] == 'yearly'
+        @event = @calendar.events.build event_params
+        @event.user = current_user
+        for i in 1...params[:event][:repeat_value].to_i
+          @new_event = @event.dup
+          @new_event.start_time = @event.start_time + i.years
+          @new_event.end_time = @event.end_time + i.years
+          @new_event.save
+        end
+        if @event.save
+          flash[:success] = 'Event created!'
+          redirect_to calendar_events_path(@calendar)
+        else
+          flash[:alert] = @event.errors.full_messages
+          redirect_to new_calendar_event_path(@calendar)
+        end
+      elsif params[:event][:repeat_type] == 'daily'
+        @event = @calendar.events.build event_params
+        @event.user = current_user
+        for i in 1...params[:event][:repeat_value].to_i
+          @new_event = @event.dup
+          @new_event.start_time = @event.start_time + i.days
+          @new_event.end_time = @event.end_time + i.days
+          @new_event.save
+        end
+        if @event.save
+          flash[:success] = 'Event created!'
+          redirect_to calendar_events_path(@calendar)
+        else
+          flash[:alert] = @event.errors.full_messages
+          redirect_to new_calendar_event_path(@calendar)
+        end
+      end
+    elsif params[:event][:repeat] == '0'
+      @event = @calendar.events.build event_params
+      @event.user = current_user
+      if @event.save
+        flash[:success] = 'Event created!'
+        redirect_to calendar_events_path(@calendar)
+      else
+        flash[:alert] = @event.errors.full_messages
+        redirect_to new_calendar_event_path(@calendar)
+      end
+
     end
   end
 
@@ -55,7 +124,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :start_time, :end_time)
+    params.require(:event).permit(:title, :start_time, :end_time, :repeat, :repeat_value, :repeat_type)
   end
 
 end

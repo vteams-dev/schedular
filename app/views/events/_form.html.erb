@@ -3,6 +3,14 @@
       <%= f.text_area :title, placeholder: 'Event Title' %>
       <%= f.datetime_field :start_time, placeholder: 'Start Time' %>
       <%= f.datetime_field :end_time, placeholder: 'End Time' %>
+      <br>
+      <%= f.label :repeat %>
+      <%= f.check_box :repeat, checked_value: true, unchecked_value: false %>
+      <br>
+      <%= f.text_area :repeat_value, placeholder: 'Repeat Value' %>
+      <%= f.text_area :repeat_type, placeholder: 'Repeat Type' %>
+
+      <%= f.submit 'Post', class: 'btn btn-primary' %>
     </div>
-    <%= f.submit 'Post', class: 'btn btn-primary' %>
+
 <% end %>

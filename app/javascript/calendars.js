@@ -4,6 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new Calendar(calendarEl, {
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             center: 'dayGridMonth,timeGridSevenDay,dayGridFourDay,dayGridOneDay' // buttons for switching between views
         },
 
-        events: '/calendars/4/events.json',
+        events: '/calendars/7/events.json',
 
 
         views: {
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         eventClick: function(info) {
             alert('Event: ' + info.event.title);
+            // alert('Date: ' +info.event.start);
             //alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
             //alert('View: ' + info.view.type);
 
