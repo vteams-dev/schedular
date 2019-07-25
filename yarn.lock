@@ -672,7 +672,7 @@
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.2.0.tgz#16716d6617137e54fceeb03c72f5124c92b86e58"
   integrity sha512-4kd5OGHxjMtwI0gUHKwAYzmR0Z79Qf8y0ARx2Ruh20JdVy3Tznn6oKwdpkUbaXWrLXNDoXYRkBiFCIgC27VNCw==
 
-"@fullcalendar/daygrid@^4.2.0":
+"@fullcalendar/daygrid@^4.2.0", "@fullcalendar/daygrid@~4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-4.2.0.tgz#c49a9e27baf40b5a637a5d8fffa2670f19ed636b"
   integrity sha512-9C61TowLTTZ657cErdylkdRYxXj5HO0NgogQgYX9X2wz7yvn6loiyGx6oq0o6OFf+e/Z4Ey06j7f/fqn/BPYEQ==
@@ -681,6 +681,18 @@
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-4.2.0.tgz#312e83f575aed67c33aec69884664d436aaedef2"
   integrity sha512-wwAyocUp1HEY7c7xCymR9EGdh7AWZrwNiBQlIpP3ne0eJT0U4ZjlnoOoels3VPsTJ9a6pdO1/XoGjEvL1T5y4g==
+
+"@fullcalendar/list@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/list/-/list-4.2.0.tgz#8eac663750af2bd0d7e64c399ab550e049283890"
+  integrity sha512-LJuwUoxLSnVti9NNT0ZG6eztoTkFl4h1/c+BwSUAcovPNAxTfVAbaV3rot+AlHz53d/QX03X1GXSNhRpUWJEBA==
+
+"@fullcalendar/timegrid@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-4.2.0.tgz#e2372ba108f5da8e38c915366c2101b4365ff409"
+  integrity sha512-JtojTR+1uc1/WNzejcmsI5/2Jg007QprK5IpR8ocUVEcHXaBBXU6CPGirEWKyfk7QPZ7KzmJCykQ68QHiptyKA==
+  dependencies:
+    "@fullcalendar/daygrid" "~4.2.0"
 
 "@rails/actioncable@^6.0.0-alpha":
   version "6.0.0-alpha"
@@ -1295,6 +1307,13 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+
+bootstrap-datepicker@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-datepicker/-/bootstrap-datepicker-1.9.0.tgz#e4bfce3fcce1967876b21dc6833ec5994aaed090"
+  integrity sha512-9rYYbaVOheGYxjOr/+bJCmRPihfy+LkLSg4fIFMT9Od8WwWB/MB50w0JO1eBgKUMbb7PFHQD5uAfI3ArAxZRXA==
+  dependencies:
+    jquery ">=1.7.1 <4.0.0"
 
 bootstrap@4.3.1:
   version "4.3.1"
@@ -3659,7 +3678,7 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jquery@^3.4.1:
+"jquery@>=1.7.1 <4.0.0", jquery@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
