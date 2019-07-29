@@ -25,10 +25,17 @@ $theme-colors: (
 
   }
 }
-
+footer{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
 
 .extra-ft {
   background-color: #138496;
+  bottom: 0;
 }
 .extra-ft-a{
   color:blanchedalmond;
