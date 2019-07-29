@@ -1,8 +1,24 @@
-<%=form_with model: [@calendar, @event] do |f| %>
-    <div class="field">
-      <%= f.text_area :title, placeholder: 'Event Title' %>
-      <%= f.datetime_field :start_time, placeholder: 'Start Time' %>
-      <%= f.datetime_field :end_time, placeholder: 'End Time' %>
-    </div>
-    <%= f.submit 'Post', class: 'btn btn-primary' %>
-<% end %>
+<div >
+  <div class="col-md-auto">
+    <%= form_with model: [@calendar,@event], id: 'form' do |f| %>
+        <div class="errors"></div>
+        <div class="form-inputs">
+          <%= f.text_field :title, placeholder: 'Title'%>
+          <%= f.text_field :date_range, class: 'form-control input-sm start-range-picker' %>
+          <%= f.text_field :time_range, class: 'form-control input-sm end-range-picker' %>
+          <%= f.hidden_field :start_time, class: 'form-control input-sm start_hidden' %>
+          <%= f.hidden_field :end_time, class: 'form-control input-sm end_hidden' %>
+          <%= f.select :color, [%w(Black black), %w(Green green), %w(Red red)], {:include_blank => 'Choose Color' }, :required => true, class:'btn btn-info btn-sm dropdown-toggle dropdown-toggle-split'%>
+
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, id: 'submit',class: 'btn btn-info btn-sm extra-padding' %>
+          <%= link_to 'Delete',
+                      calendar_event_path(@calendar, event),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' },
+                      remote: true unless @event.new_record? %>
+        </div>
+    <% end %>
+  </div>
+</div>

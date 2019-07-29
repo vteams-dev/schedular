@@ -1,0 +1,5 @@
+window.calendar.getEventById(<%= @event.id %>).remove();
+window.calendar.addEvent(
+  $.parseJSON("<%=j render(@event, format: :json).html_safe %>")
+);
+$('.modal').modal('hide');

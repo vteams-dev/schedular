@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
 
   create_table "calendars", force: :cascade do |t|
     t.string "title"
-    t.string "color"
     t.string "owner_type"
     t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_06_28_130211) do
     t.string "repeat_type"
     t.string "repeat_value"
     t.string "location"
+    t.string "color"
     t.integer "calendar_id"
     t.integer "user_id"
     t.string "eventable_type"
