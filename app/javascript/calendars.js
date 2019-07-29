@@ -13,10 +13,12 @@ let start_range_picker = (selectionInfo) => {
             timePicker: true,
             timePickerIncrement: 1,
             startDate: moment(selectionInfo.start),
+            autoApply: true,
             "opens": "right",
         }, function(start) {
             $('.start_hidden').val(start.format('YYYY-MM-DD HH:mm'));
         });
+        $('.start_hidden').val(moment(selectionInfo.start).format('YYYY-MM-DD HH:mm'));
     });
 };
 let end_range_picker = (selectionInfo) => {

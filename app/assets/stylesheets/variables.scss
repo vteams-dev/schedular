@@ -25,16 +25,14 @@ $theme-colors: (
 
   }
 }
-footer{
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 50px;
-  width: 100%;
-}
-
 .extra-ft {
   background-color: #138496;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
   bottom: 0;
 }
 .extra-ft-a{
@@ -74,3 +72,24 @@ footer{
   color: blanchedalmond;
 }
 
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.calendar_name{
+  font-weight: bold;
+}

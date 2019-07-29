@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   def create
     @event = @calendar.events.build event_params
     @event.user = current_user
+    date_conversion()
     @event.save
   end
 
@@ -49,6 +50,7 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :start_time, :end_time, :color, :date_range)
   end
+
   def date_conversion
     start_time = params[:event][:start_time].split(' ')
     end_time = params[:event][:end_time].split(' ')
