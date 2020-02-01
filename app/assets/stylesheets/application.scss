@@ -17,4 +17,7 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 @import "../../../node_modules/@fullcalendar/core/main.min";
 @import "../../../node_modules/@fullcalendar/daygrid/main.min";
-
+@import "variables";
+@import "calendars";
+@import "events";
+@import "../../../node_modules/bootstrap-daterangepicker/daterangepicker";

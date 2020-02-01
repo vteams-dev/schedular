@@ -12,13 +12,8 @@ class EventsController < ApplicationController
   def create
     @event = @calendar.events.build event_params
     @event.user = current_user
-    if @event.save
-      flash[:success] = 'Event created!'
-      redirect_to calendar_events_path
-    else
-      flash[:alert] = @event.errors.full_messages
-      redirect_to new_calendar_event_path(@calendar)
-    end
+    date_conversion()
+    @event.save
   end
 
   def show
@@ -34,7 +29,6 @@ class EventsController < ApplicationController
     @event = @calendar.events.find(params[:id])
     if @event.update_attributes(event_params)
       flash[:success] = 'Event updated'
-      redirect_to calendar_event_path(@calendar, @event.id)
     else
       flash[:error] = @event.errors.full_messages
       redirect_to edit_calendar_event_path(@calendar)
@@ -45,7 +39,6 @@ class EventsController < ApplicationController
     @event = @calendar.events.find(params[:id])
     @event.destroy
     flash[:success] = 'Event deleted'
-    redirect_to calendar_events_path(@calendar)
   end
 
   private
@@ -55,7 +48,17 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :start_time, :end_time)
+    params.require(:event).permit(:title, :start_time, :end_time, :color, :date_range)
+  end
+
+  def date_conversion
+    start_time = params[:event][:start_time].split(' ')
+    end_time = params[:event][:end_time].split(' ')
+    date = params[:event][:date_range]
+    str = date + ' ' + start_time[1]
+    str2 = date + ' ' + end_time[1]
+    @event.start_time = DateTime.strptime( str, '%m/%d/%Y %H:%M')
+    @event.end_time = DateTime.strptime( str2, '%m/%d/%Y %H:%M')
   end
 
 end

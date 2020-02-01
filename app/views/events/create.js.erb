@@ -1,0 +1,5 @@
+console.log($.parseJSON("<%=j render(@event, format: :json).html_safe %>"))
+window.calendar.addEvent(
+    $.parseJSON("<%=j render(@event, format: :json).html_safe %>")
+);
+$('.modal').modal('hide');

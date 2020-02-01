@@ -12,6 +12,7 @@ class CalendarsController < ApplicationController
 
   def show
     @calendar = Calendar.find(params[:id])
+    @events = @calendar.events
   end
 
   def edit

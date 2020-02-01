@@ -8,6 +8,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :repeat_type
       t.string :repeat_value
       t.string :location
+      t.string :color
       t.references  :calendar, foreign_key: true
       t.references  :user, foreign_key: true
       t.references  :eventable, polymorphic: true, index: true
